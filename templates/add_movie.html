@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask MySQL App</title>
+</head>
+<body>
+    <h1>Data from MySQL</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Insert Data</h2>
+    <form action="{{ url_for('insert') }}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <input type="submit" value="Insert">
+    </form>
+</body>
+</html>
